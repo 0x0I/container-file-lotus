@@ -1,0 +1,46 @@
+file:
+  /usr/bin/lotus:
+    exists: true
+    mode: "0755"
+    owner: root
+    group: root
+    filetype: file
+file:
+  /usr/bin/lotus-storage-miner:
+    exists: true
+    mode: "0755"
+    owner: root
+    group: root
+    filetype: file
+file:
+  /usr/bin/lotus-seal-worker:
+    exists: true
+    mode: "0755"
+    owner: root
+    group: root
+    filetype: file
+file:
+  /mnt/lotus/config.toml:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contains:
+      - "[API]"
+      - "ListenAddress ="
+      - "[Metrics]"
+      - "Nickname ="
+command:
+  lotus --help:
+    exit-status: 0
+command:
+  lotus-storage-miner --help:
+    exit-status: 0
+command:
+  lotus-seal-worker --help:
+    exit-status: 0
+process:
+  lotus:
+    running: true
+    skip: false

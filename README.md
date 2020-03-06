@@ -1,10 +1,10 @@
 <p><img src="https://avatars1.githubusercontent.com/u/12563465?s=200&v=4" alt="OCI logo" title="oci" align="left" height="70" /></p>
-<p><img src="https://i.imgur.com/IBNz2CM.jpg" alt="0xO1 logo" title="0xO1" align="right" height="80" /></p>
+<p><img src="https://docs.lotu.sh/static/logo-512.png" alt="lotus logo" title="lotus" align="right" height="90" /></p>
 
-Container File :zero::one: Template
+Container File :cherry_blossom: :link: Template
 =========
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/container-file-template?color=yellow)
-[![Build Status](https://travis-ci.org/0x0I/container-file-template.svg?branch=master)](https://travis-ci.org/0x0I/container-file-template)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/container-file-lotus?color=yellow)
+[![Build Status](https://travis-ci.org/0x0I/container-file-lotus.svg?branch=master)](https://travis-ci.org/0x0I/container-file-lotus)
 [![Docker Pulls]()](<docker-hub-link)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 
@@ -20,7 +20,7 @@ Container File :zero::one: Template
   - [License](#license)
   - [Author Information](#author-information)
 
-...description of Container file...
+Container file that installs, configures and launches Lotus: an implementation of the Filecoin distributed storage network protocol written in Go.
 
 ##### Supported Platforms:
 ```
@@ -31,7 +31,7 @@ Container File :zero::one: Template
 Requirements
 ------------
 
-...description of provisioning requirements...
+None 
 
 Environment Variables
 --------------

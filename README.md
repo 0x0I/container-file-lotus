@@ -73,7 +73,7 @@ Furthermore, configuration is not constrained by hardcoded author defined defaul
   ```bash
   # [TOML Section 'Metrics']
   # Property: PubsubTracing
-  CONFIG_Metrics_PubsubTracing=<property-value> # enable publish-subscription tracing of client 
+  CONFIG_Metrics_PubsubTracing=<property-value>
   ```
 
   `<property-value>` -- represents property value to configure:

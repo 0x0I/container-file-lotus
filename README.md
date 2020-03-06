@@ -1,7 +1,7 @@
 <p><img src="https://avatars1.githubusercontent.com/u/12563465?s=200&v=4" alt="OCI logo" title="oci" align="left" height="70" /></p>
 <p><img src="https://docs.lotu.sh/static/logo-512.png" alt="lotus logo" title="lotus" align="right" height="90" /></p>
 
-Container File :cherry_blossom: :link: Template
+Container File :cherry_blossom: :link: Lotus
 =========
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/container-file-lotus?color=yellow)
 [![Build Status](https://travis-ci.org/0x0I/container-file-lotus.svg?branch=master)](https://travis-ci.org/0x0I/container-file-lotus)
@@ -39,8 +39,6 @@ Variables are available and organized according to the following software & mach
 * _install_
 * _config_
 * _launch_
-
-...
 
 #### Install
 

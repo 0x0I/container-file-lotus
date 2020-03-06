@@ -42,7 +42,7 @@ Variables are available and organized according to the following software & mach
 
 #### Install
 
-_The following variables can be customized to control aspects of the installation process for both the Lotus client and storage miner involving where operational artifacts are stored.
+_The following variables can be customized to control aspects of the installation process for both the Lotus client and storage miner involving where operational artifacts are stored._
 
 `$LOTUS_PATH:` (**default**: <string> `/root/.lotus/`)
 - path within container the `lotus` service should establish as its runtime configuration and data directory
@@ -73,7 +73,7 @@ Furthermore, configuration is not constrained by hardcoded author defined defaul
   ```bash
   # [TOML Section 'Metrics']
   # Property: PubsubTracing
-  CONFIG_Metrics_PubsubTracing=true # enable publish-subscription tracing of client 
+  CONFIG_Metrics_PubsubTracing=<property-value> # enable publish-subscription tracing of client 
   ```
 
   `<property-value>` -- represents property value to configure:
@@ -86,7 +86,7 @@ Furthermore, configuration is not constrained by hardcoded author defined defaul
   
 #### Launch
 
-Running of the `lotus` client and RPC server as well as the `lotus-storage-miner` service is accomplished utilizing official **Lotus** binaries, obtained from filecoin's github [site](https://github.com/filecoin-project/lotus/releases). Launched subject to the configuration and execution potential provided by the underlying application, the aforementioned `lotus` executables can be set to adhere to system administrative policies right for your environment and organization.
+Running of the `lotus` client and API server as well as the `lotus-storage-miner` service is accomplished utilizing official **Lotus** binaries, obtained from *Filecoin's Lotus* github [site](https://github.com/filecoin-project/lotus/releases). Launched subject to the configuration and execution potential provided by the underlying application, the aforementioned `lotus` executables can be set to adhere to system administrative policies right for your environment and organization.
 
 _The following variables can be customized to manage the Lotus client and Lotus Storage miner execution profiles/policies:_
 
@@ -111,6 +111,11 @@ default example:
 podman run 0labs/0x01.lotus:v0.2.10_ubuntu-19.04
 ```
 
+only manage launch of the `lotus` client and API server:
+```bash
+podman run --env MANAGED_SERVICES=lotus 0labs/0x01.lotus:v0.2.10_ubuntu-19.04
+```
+
 expose `lotus` API/JSON-RPC server on non-loopback (wildcard/*) address
 ```bash
 podman run --env CONFIG_API_ListenAddress= /ip4/0.0.0.0/tcp/1234/http \
@@ -120,7 +125,8 @@ podman run --env CONFIG_API_ListenAddress= /ip4/0.0.0.0/tcp/1234/http \
 
 launch `lotus` service and `lotus-storage-miner` agents with custom runtime/storage paths and launch options:
 ```bash
-podman run --env LOTUS_PATH=/mnt/lotus \
+podman run --env MANAGED_SERVICES="lotus lotus-storage-miner" \
+           --env LOTUS_PATH=/mnt/lotus \
            --env LOTUS_STORAGE_PATH=/mnt/lotus/miner \
            --env CONFIG_Metrics_Nickname=example_miner \
            --env EXTRA_ARGS=--bootstrap \

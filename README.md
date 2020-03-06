@@ -47,7 +47,7 @@ _The following variables can be customized to control aspects of the installatio
 `$LOTUS_PATH:` (**default**: <string> `/root/.lotus/`)
 - path within container the `lotus` service should establish as its runtime configuration and data directory
   
-`$LOTUS_STORAGE_PATH:` (**default**: <string> `/root/.lotus/`)
+`$LOTUS_STORAGE_PATH:` (**default**: <string> `/root/.lotusstorage/`)
 - path within container the `lotus-storage-miner` service should establish as its runtime and data storage directory.
 
 #### Config

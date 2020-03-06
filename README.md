@@ -26,6 +26,7 @@ Container file that installs, configures and launches Lotus: an implementation o
 ```
 * Redhat(CentOS/Fedora)
 * Debian
+* Ubuntu
 ```
 
 Requirements

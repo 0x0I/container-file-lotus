@@ -2,8 +2,6 @@ ARG install_dir=/opt/lotus
 
 FROM {{ os_version }} AS builder
 
-LABEL maintainer="O1.IO"
-
 ARG install_dir
 {% if system_dependencies|length > 0 %}
 
@@ -23,6 +21,8 @@ RUN make install
 
 FROM {{ os_version }}
 
+LABEL maintainer="O1.IO"
+
 ARG install_dir
 {% if run_dependencies|length > 0 %}
 
@@ -32,10 +32,9 @@ RUN {{ package_manager }} update -y && \
 
 COPY --from=builder $install_dir/lotus $install_dir/lotus-storage-miner $install_dir/lotus-seal-worker /usr/bin/
 
-COPY scripts /usr/bin
+COPY scripts/entrypoint.sh scripts/start-lotus.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh /usr/bin/start-lotus.sh
-COPY entrypoints  /entrypoint.d
+COPY entrypoints/setup-config.sh /entrypoint.d
 
 ENTRYPOINT ["entrypoint.sh"]
-
 CMD ["start-lotus.sh"]

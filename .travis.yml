@@ -8,8 +8,7 @@ env:
   - OS_VERSION=fedora-31
   - OS_VERSION=ubuntu-18.04
   - OS_VERSION=ubuntu-19.04
-  - OS_VERSION=debian-8
-  - OS_VERSION=debian-9
+  - OS_VERSION=debian-10
 
 before_script:
   - sudo curl -fsSL https://goss.rocks/install | sudo sh

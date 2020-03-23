@@ -1,8 +1,8 @@
 ARG install_dir=/opt/lotus
 
-FROM {{ os_version }} AS builder
+FROM {{ os_version }}
 
-ARG install_dir
+LABEL maintainer="O1.IO"
 {% if system_dependencies|length > 0 %}
 
 RUN {{ package_manager }} update -y && \
@@ -12,25 +12,7 @@ RUN {{ package_manager }} update -y && \
 # Download and install prerequisite version of Go for build
 RUN curl -L {{ go_url }} | tar -xzf - -C /tmp && ln -s /tmp/go/bin/go /usr/bin/go
 
-RUN mkdir -p $install_dir
-WORKDIR $install_dir
-
-RUN git clone {{ git_url }} $install_dir && git reset --hard {{ git_version }}
-RUN make clean && make all
-RUN make install
-
-FROM {{ os_version }}
-
-LABEL maintainer="O1.IO"
-
-ARG install_dir
-{% if run_dependencies|length > 0 %}
-
-RUN {{ package_manager }} update -y && \
-    {{ package_manager }} install -y {{ run_dependencies|join(' ') }}
-{% endif %}
-
-COPY --from=builder $install_dir/lotus $install_dir/lotus-storage-miner $install_dir/lotus-seal-worker /usr/bin/
+RUN curl -L {{ archive_url }} | tar xzf - --strip-components=1 -C /usr/bin
 
 COPY scripts/entrypoint.sh scripts/start-lotus.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh /usr/bin/start-lotus.sh

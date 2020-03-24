@@ -109,19 +109,19 @@ Example Run
 ----------------
 default example:
 ```bash
-podman run 0labs/0x01.lotus:v0.2.10_ubuntu-19.04
+podman run 0labs/0x01.lotus:0.2.10_ubuntu-19.04
 ```
 
 only manage launch of the `lotus` client and API server:
 ```bash
-podman run --env MANAGED_SERVICES=lotus 0labs/0x01.lotus:v0.2.10_ubuntu-19.04
+podman run --env MANAGED_SERVICES=lotus 0labs/0x01.lotus:0.2.10_ubuntu-19.04
 ```
 
 expose `lotus` API/JSON-RPC server on non-loopback (wildcard/*) address
 ```bash
 podman run --env CONFIG_API_ListenAddress= /ip4/0.0.0.0/tcp/1234/http \
            --env CONFIG_Libp2p_ListenAddress=/ip4/0.0.0.0/tcp/1234/http \
-           0labs/0x01.lotus:v0.2.10_fedora-31
+           0labs/0x01.lotus:0.2.10_fedora-31
 ```
 
 launch `lotus` service and `lotus-storage-miner` agents with custom runtime/storage paths and launch options:
@@ -132,7 +132,7 @@ podman run --env MANAGED_SERVICES="lotus lotus-storage-miner" \
            --env CONFIG_Metrics_Nickname=example_miner \
            --env EXTRA_ARGS=--bootstrap \
            --env EXTRA_MINER_ARGS=--nosync \
-           0labs/0x01.lotus:v0.2.10_debian-9
+           0labs/0x01.lotus:0.2.10_debian-10
 ```
 
 License

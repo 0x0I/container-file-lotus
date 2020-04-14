@@ -95,10 +95,14 @@ _The following variables can be customized to manage the Lotus client and Lotus 
 - list of Lotus services to manage and launch
 
 `$EXTRA_ARGS: <lotus-cli-options>` (**default**: *NONE*)
-- list of `lotus daemon` commandline arguments to pass to the binary at runtime for customizing launch. Supporting full expression of `lotus daemon`'s [cli](https://gist.github.com/0x0I/53533099efcee8c87a49301e79358a0a), this variable enables the launch to be customized according to the user's specification.
+- list of `lotus daemon` commandline arguments to pass to the binary at runtime for customizing launch
+
+See [here](https://gist.github.com/0x0I/53533099efcee8c87a49301e79358a0a) for an example of the `lotus daemon`'s [cli]).
   
 `$EXTRA_MINER_ARGS: <lotus-storage-miner-cli-options>` (**default**: *NONE*)
-- list of `lotus-storage-miner run` commandline arguments to pass to the binary at runtime for customizing launch. Supporting full expression of `lotus-storage-miner run`'s [cli](https://gist.github.com/0x0I/71b7a7c25a7f558d4fd9f0ff39a896d6), this variable enables the launch to be customized according to the user's specification.
+- list of `lotus-storage-miner run` commandline arguments to pass to the binary at runtime for customizing launch.
+
+See [here](https://gist.github.com/0x0I/71b7a7c25a7f558d4fd9f0ff39a896d6) for an example of the `lotus-storage-miner run`'s [cli].
 
 Dependencies
 ------------

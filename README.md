@@ -61,7 +61,7 @@ _The following variables can be customized to manage the content of this TOML co
 
 * Any configuration setting/value key-pair supported by `lotus` should be expressible within each `CONFIG_*` environment variable and properly rendered within the associated TOML config. **Note:** `<section-keyword>` along with the other property specifications should be written as expected to be rendered within the associated `TOML` config (**e.g.** *Libp2p*).
 
-Furthermore, configuration is not constrained by hardcoded author defined defaults or limited by pre-baked templating. If the config section, setting and value are recognized by the `lotus` tool, :thumbsup: to define within an environnment variable according to the following syntax.
+Furthermore, configuration is not constrained by hardcoded author defined defaults or limited by pre-baked templating. Only configurations specified by the operator are rendered within the configuration file. Also if the config section, setting and value are recognized by the `lotus` tool, :thumbsup: to define within an environnment variable according to the following syntax.
 
   `<section-keyword>` -- represents TOML config sections:
   ```bash
@@ -87,7 +87,7 @@ Furthermore, configuration is not constrained by hardcoded author defined defaul
   
 #### Launch
 
-Running of the `lotus` client and API server as well as the `lotus-storage-miner` service is accomplished utilizing official **Lotus** binaries, obtained from *Filecoin's Lotus* github [site](https://github.com/filecoin-project/lotus/releases). Launched subject to the configuration and execution potential provided by the underlying application, the aforementioned `lotus` executables can be set to adhere to system administrative policies right for your environment and organization.
+Running of the `lotus` client and API server as well as the `lotus-storage-miner` service is accomplished using official **Lotus** binaries, obtained from *Filecoin's Lotus* github [site](https://github.com/filecoin-project/lotus/releases).
 
 _The following variables can be customized to manage the Lotus client and Lotus Storage miner execution profiles/policies:_
 

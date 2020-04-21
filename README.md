@@ -32,7 +32,7 @@ Container file that installs, configures and launches Lotus: an implementation o
 Requirements
 ------------
 
-None 
+None
 
 Environment Variables
 --------------
@@ -47,7 +47,7 @@ _The following variables can be customized to control aspects of the installatio
 
 `$LOTUS_PATH:` (**default**: <string> `/root/.lotus/`)
 - path within container the `lotus` service should establish as its runtime configuration and data directory
-  
+
 `$LOTUS_STORAGE_PATH:` (**default**: <string> `/root/.lotusstorage/`)
 - path within container the `lotus-storage-miner` service should establish as its runtime and data storage directory.
 
@@ -56,7 +56,7 @@ _The following variables can be customized to control aspects of the installatio
 Configuration of the `lotus` client can be expressed in a config file written in [TOML](https://github.com/toml-lang/toml), a minimal markup language. **Note:** This file can be found under the directory specified by the `LOTUS_PATH` (for the lotus client/service) or `LOTUS_STORAGE_PATH` (for the lotus miner) environment variables. For an idea of the available configuration options, reference this [example](https://gist.github.com/0x0I/dd3e7e4fbb1b9feaf147c216ebfacff0) (installed by default).
 
 _The following variables can be customized to manage the content of this TOML configuration:_
- 
+
 `$CONFIG_<section-keyword>_<section-property> = <property-value (string)>` **default**: *None*
 
 * Any configuration setting/value key-pair supported by `lotus` should be expressible within each `CONFIG_*` environment variable and properly rendered within the associated TOML config. **Note:** `<section-keyword>` along with the other property specifications should be written as expected to be rendered within the associated `TOML` config (**e.g.** *Libp2p*).
@@ -68,9 +68,9 @@ Furthermore, configuration is not constrained by hardcoded author defined defaul
   # [TOML Section 'Metrics']
   CONFIG_Metrics_<section-property>=<property-value>
   ```
-  
+
   `<section-property>` -- represents a specific TOML config section property to configure:
-  
+
   ```bash
   # [TOML Section 'Metrics']
   # Property: PubsubTracing
@@ -82,9 +82,9 @@ Furthermore, configuration is not constrained by hardcoded author defined defaul
   # [TOML Section 'Metrics']
   # Property: PubsubTracing
   # Value: true
-  CONFIG_Metrics_PubsubTracing=true # enable publish-subscription tracing for performance monitoring/troubleshooting 
+  CONFIG_Metrics_PubsubTracing=true # enable publish-subscription tracing for performance monitoring/troubleshooting
   ```
-  
+
 #### Launch
 
 Running of the `lotus` client and API server as well as the `lotus-storage-miner` service is accomplished using official **Lotus** binaries, obtained from *Filecoin's Lotus* github [site](https://github.com/filecoin-project/lotus/releases).
@@ -98,7 +98,7 @@ _The following variables can be customized to manage the Lotus client and Lotus 
 - list of `lotus daemon` commandline arguments to pass to the binary at runtime for customizing launch
 
 See [here](https://gist.github.com/0x0I/53533099efcee8c87a49301e79358a0a) for an example of the `lotus daemon`'s cli.
-  
+
 `$EXTRA_MINER_ARGS: <lotus-storage-miner-cli-options>` (**default**: *NONE*)
 - list of `lotus-storage-miner run` commandline arguments to pass to the binary at runtime for customizing launch.
 
@@ -113,12 +113,12 @@ Example Run
 ----------------
 default example:
 ```bash
-podman run 0labs/0x01.lotus:0.2.10_ubuntu-19.04
+podman run 0labs/0x01.lotus:0.2.10_ubuntu-19.10
 ```
 
 only manage launch of the `lotus` client and API server:
 ```bash
-podman run --env MANAGED_SERVICES=lotus 0labs/0x01.lotus:0.2.10_ubuntu-19.04
+podman run --env MANAGED_SERVICES=lotus 0labs/0x01.lotus:0.2.10_ubuntu-19.10
 ```
 
 expose `lotus` API/JSON-RPC server on non-loopback (wildcard/*) address
